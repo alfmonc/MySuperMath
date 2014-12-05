@@ -59,11 +59,13 @@ require_once('connect.php');   // Call the connection file so it connect to the 
 		//  We need to join two arrays. Wrong_facts_stored and level fast array that contains all the facts for that level.
 		$merged = array_merge($wrong_facts_stored,$level_facts_array);
 		
-		$_SESSION['facts_array'] = $merged;   // Stores the merged array in the global session facts_array.
+	//	$_SESSION['facts_array'] = $merged;   // Stores the merged array in the global session facts_array.
+		$myarray = $merged;
 		
 	} else {    //  else if there there are any wrong fracts stored then
 		
-		$_SESSION['facts_array'] = $level_facts_array;     //  Stored the facts in that array with not merging just the level.
+	//	$_SESSION['facts_array'] = $level_facts_array;     //  Stored the facts in that array with not merging just the level.
+		$myarray = $level_facts_array;
 		
 		$wrong_facts_stored = array();     //  Sets wrong fracts stored as an empty array.
 			
@@ -77,16 +79,11 @@ require_once('connect.php');   // Call the connection file so it connect to the 
 	$_SESSION['wrong_facts'] = array();  // Where the wrong facts will be stored.
 	
 	
+	$_SESSION['facts_array'] = $myarray;  // This variable myarray comes from the if above. Containing different data depending if the condition is true or false.
 	
 	
-	
-	
-	
-	
-		
 	
 	// Assigns the array $myvar to facts_array as index, in the super global $_SESSION.
-	// $_SESSION['facts_array'] = $myvar; // sustituido
 	$_SESSION['user'] = $data['user_name'];    //Assigns the user name in the super global array $_SESSION as user_name as index.
 	$_SESSION['level'] = $data['user_level'];  //Assigns the user level contained in $data array, in the super global array $_SESSION['level'].
 	$_SESSION['user_id'] = $data['user_id'];   // Assigns the user id to the super global variable $_SESSION['user_id'].
@@ -116,34 +113,49 @@ require_once('connect.php');   // Call the connection file so it connect to the 
 	
 	// Now we need to add some more facts from the levels below from wich the user is, so the user dont forget them.
 	// If user level is greater than level 0 then.
-	if($_SESSION[''])
+	if($_SESSION['level'] > 0) {
 	
-		// Ramdomly select 5 facts of each level and put it in the selected facts array.
-		// Merge the array with the facts array.
-	
-	
-	
-	
-	
-	
-	
-	/**************/
-	// Trouble shoot show the var.
-	//echo '<pre>';
-	//echo var_dump($data);
-	
-	// Trouble shoot show the var.
-	// echo '<pre>';
-	// echo var_dump($_SESSION);
+		try {  $facts_levels=$db->query("SELECT addition_facts FROM numbers_operations");   }
+		catch (Exception $e) {echo "Data could not";}
+					
+		// All the numbers_operations coulmn is now an array, containded in $all_levels.
+		$all_levels = $facts_levels->fetchAll(PDO::FETCH_COLUMN, 0);  // The 0 is the column number.
 		
-	// Trouble shoot show the session id.
-	//echo "<p>Session ID is ".session_id().".</p>";
+		
+		$bag_of_facts = array();                             // Declare bag_of_facts as an empty array.
+		
+		for($i=0; $i < $_SESSION['level']; $i++) {                // loop through every level ( parameter ) below user level.
+			
+			$string_to_array = explode(",", $all_levels[$i]);     // Combert parameter in to an array.
+			$parameters_count = count($string_to_array);         // Count how many parameters there are in there.			
+			--$parameters_count;
+			
+			
+			for($ii=0; $ii < 2; $ii++) {                           // loop to select 2 random facts
+			$random_number = rand(0,$parameters_count);            // Ramdomly select a number from 0 to the total count of the array.
+			$random_fact = $string_to_array[$random_number];       // Get the random fact.
+				if(!in_array($random_fact,$bag_of_facts)) {            // if is not true that random_fact is already in the array bag_of_facts then;
+				array_push($bag_of_facts, $random_fact);               // Add the fact in the bag_of_facts array_push adds an element at the begging of the array.
+				} else {                                               // else if it already existe in the array
+				++$ii;                                                 // add one point to ii so it tries again.				
+				}
+				// end else same fact picked
+			
+			}  // end loop select facts
 	
+		}  // end loop  select all levels below user level
+		
 	
-	//ob_start();
-
-	/******/
+		// Put the array bag_of_facts and the facts array together.
+		$merged = array_merge($bag_of_facts,$_SESSION['facts_array']);
+		
+		$_SESSION['facts_array'] = $merged;   // put it back in the session facts array with all the new random facts.
+		
 	
+	} // end if session level is grater than 0
+		
+	
+  //	echo '<pre>'; echo var_dump($_SESSION['facts_array']);exit;   // Trouble shoot .
 	
 	
 	
