@@ -6,29 +6,41 @@ require_once('connect.php');   // Call the connection file so it connect to the 
 	
 
 
-	if($_POST['use']) {
+	if($_POST['userName']) {
 
-	try {  $user_database=$db->query('SELECT * FROM math_user');   } 
-	catch (Exception $e) {echo "Data could not";}
+		
+	$pass = strip_tags($_POST['password']);
+	$user_name = strip_tags($_POST['userName']);
+	
+	try {  $user_database=$db->prepare('SELECT * FROM math_user WHERE password=? AND user_name=? LIMIT 1');   
+	
+	$user_database->bindParam(1, $pass);
+	$user_database->bindParam(2, $user_name);
+	
+	$user_database->execute();   //  execute prepare  if not specified prepare will not apply.
+	
+	} catch (Exception $e) {echo "Data could not";}
+	
+	
 	
 
 	$user_information = $user_database->fetch(PDO::FETCH_ASSOC);
 		
 	
-
+	
 	$dbPassword = $user_information['password'];
 	
 	
-	if($dbPassword == $_POST['pa']) {
+	if($dbPassword == $_POST['password']) {
 	
 		
-		$_SESSION['use'] = $user_information['user_name'];
+		$_SESSION['use'] = $user_information['userName'];
 
 		$_SESSION['id'] = $user_information['user_id'];
 		
 		header("Location: view_home.php");
 		
-		
+		echo "<h2>You are loged in.</h2>";
 	
 		
 	} else {
@@ -43,18 +55,7 @@ require_once('connect.php');   // Call the connection file so it connect to the 
 }  // end if
 	
 	
-	
-	// este es un trouble shooting
-	
-	echo "<h2>que putas pasa</h2>";
-	
-	echo '<pre>';
-	echo var_dump($estado);
-	echo var_dump($user_information);
-	echo '</pre>';
-		
-	
-	
+	//	echo '<pre>'; echo var_dump($_SESSION['facts_array']);exit;   // Trouble shoot .
 	
 ?>
 
@@ -135,9 +136,9 @@ h1 {
 
 <form id="form" action="view_l.php" method="POST" enctype="multipart/from-data">
 
-Use: <input type="text" name="use" /> <br />
+Use: <input type="text" name="userName" /> <br />
 
-Password: <input type="password" name="pa" /> <br />
+Password: <input type="password" name="password" /> <br />
 
 <input type="submit" value="Login" name="Submit" />
 
