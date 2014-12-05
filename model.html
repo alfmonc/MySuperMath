@@ -1,0 +1,35 @@
+﻿
+<!doctype html>
+
+<html>
+
+  <head>
+  </head>
+  <body>
+  
+<?php
+
+	require("model_connect.php");
+
+	$numbers = $db->query('SELECT user_numbers FROM math_user WHERE user_id = 1');
+	
+	
+	echo <pre>;
+	var_dump($numbers);
+	echo</pre>;
+	
+
+
+
+
+?>
+
+</body>
+
+</html>
+
+
+
+
+
+

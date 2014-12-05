@@ -1,0 +1,319 @@
+﻿
+<!doctype html>
+
+<html>
+
+  <head>
+    <title>A blank HTML5 page</title>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+  
+  
+	<div id="result"></div>
+
+	<div id="result2"></div>
+
+	<div id="result3"></div>
+  
+  
+  
+  
+	<script type="text/javascript">
+	
+	
+	
+	// La cadena de datos esta contenida en myarray, esta fue enviada desde php usando echo para escribir codigo javaScript
+    // por medio de localStorage, en esta pagina se usa esa misma variable.
+		
+	string = localStorage.myarray;   // Se alamacena la cadena de datos contenida en myarray en la variable string
+	
+	document.getElementById("result").innerHTML="Hi this is storageArray your data local stored is: " + localStorage.myarray;
+	
+	document.getElementById("result2").innerHTML="This data has been pass to the variable string: " + string;
+	
+	my_array = string.split(",");   // Usamos split para separar el string en partes usando la "," como referencia
+	
+	document.getElementById("result3").innerHTML="This data is the element one in the array my_array: " + my_array[0];
+	
+	
+	
+	
+	
+	
+	// my_array = ['1-1','2-1'];
+	buenas = [];
+	malas = [];
+	malas_grabadas =[];
+	
+	// Asigna el cero en cada valor del array buenas, paralelo a cada valor de my_array.
+	for(i in my_array) {
+	buenas[i] = 0; } 
+	
+	// Asigna el cero en cada valor del array malas, paralelo a cada valor de my_array.
+	for(i in my_array) {
+	malas[i] = 0; }
+	
+	
+	// Al cargar la ventana llama a la funcion entrada.
+	window.onload = entrada;
+	
+	function entrada() {
+	document.getElementById("nu").innerHTML = "hola";
+	document.getElementById("respuesta").innerHTML = "Nada";
+	generador_resta();
+	document.getElementById("array").innerHTML = my_array;
+	document.getElementById("buenas").innerHTML = buenas;
+	}
+	
+	
+	function generador_resta(){
+	
+	
+	
+	random_number = Math.floor(Math.random() * my_array.length);
+	
+	// var hace que la variable sea solo local, si solo se declara como random_number entonces sera global
+	//var minuend_number = my_array[random_number] + 2; 
+	
+	// Obtiene el la resta escogida dentro del array, separa los numeros usando como referencia el signo - luego hace un array x 
+	// el cual contiene los numeros de la resta.
+	var x = my_array[random_number].split("-");
+	// Toma los numeros string del array x y los convierte a integer y luego los resta. Se obtiene la respuesta correcta en la
+	// variable respuesta_maquina.
+	var respuesta_maquina = parseInt(x[0]) - parseInt(x[1]);
+	
+	document.getElementById("resta").innerHTML = my_array[random_number] + " = ";
+	
+	document.getElementById("nu_array").innerHTML = "Numero random " + x;       // random_number;
+	
+	document.getElementById("nu").innerHTML = "Resta elegida dentro del array " + my_array[random_number];
+	
+	
+	
+	// Almacena el numero random elegido para compararlo con la respuesta del usuario
+	sessionStorage.respuesta_correcta = respuesta_maquina;
+
+	document.getElementById("respuesta").innerHTML = "Respuesta correcta de la maquina" + sessionStorage.respuesta_correcta;
+	
+
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	function comprueba() {
+	
+	
+	
+	
+	//  Obtiene el elemento en la var respuesta
+	var respuesta_usuario = document.getElementById("difference");
+	//  Almacena el valor del usuario en el elemento difference en el nuevo objeto creado re
+	sessionStorage.re = respuesta_usuario.value;
+	//  Muestra el valor almacenado
+	document.getElementById("respuesta_dada").innerHTML = "Respuesta almacenada del usuario  " + sessionStorage.re;
+	document.getElementById("respuesta").innerHTML = "Respuesta correcta de la maquina" + sessionStorage.respuesta_correcta;
+	
+	var anumero = parseInt(sessionStorage.re);
+	var my_nu = parseInt(sessionStorage.respuesta_correcta);
+	// Si es correcto hara:
+	if( my_nu == anumero ) {
+		
+		
+	// Letrero de CORRECTO.
+	document.getElementById("verificacion").innerHTML = "Correcto";
+		
+		// Si buenas es menor o igual a 2 hara:
+		if (buenas[random_number] <= 2) {
+		
+		// Pone uno o suma uno al elemento en el array buenas.
+		buenas[random_number] = buenas[random_number] + 1;
+		
+		// Flag  de array numeros.
+		document.getElementById("array").innerHTML = my_array;
+		// Flag  de array buenas.
+		document.getElementById("buenas").innerHTML = buenas;
+				
+		}
+		
+		// Si no es menor a 3 entonces:
+		else 
+		{
+		// Borra el numero elegido del array y cambia el numero de elementos.
+		my_array.splice(random_number,1);
+		
+		// Borra el elemento buenas.
+		buenas.splice(random_number,1);
+		
+		// Borra el elemento malas.
+		malas.splice(random_number,1);
+		
+		// Flag  de array numeros.
+		document.getElementById("array").innerHTML = my_array;
+		// Flag  de array buenas.
+		document.getElementById("buenas").innerHTML = buenas;
+		
+		// Flag  de array malas.
+		document.getElementById("malas").innerHTML = buenas;
+		}
+		
+	}
+	
+	else {
+	
+	document.getElementById("verificacion").innerHTML = "Equivocado";
+		
+		// Si se ha equivocado en esa suma menos o igual a dos veces.
+		if (malas[random_number] <= 2) {
+		
+		// Pone uno o suma uno al elemento en el array malas.
+		malas[random_number] = malas[random_number] + 1;
+		
+		document.getElementById("verificacion").innerHTML = "Te haz equivocado " + malas[random_number] + "veces.";
+		
+		document.getElementById("malas").innerHTML = malas;
+		document.getElementById("malas_grabadas").innerHTML = malas_grabadas;
+		document.getElementById("indice").innerHTML = malas_grabadas.indexOf(my_array[random_number]);
+		}
+		
+		else {
+						// Agrega el factor en el que se esta equivocando al array malas_grabadas.
+			if (malas_grabadas.indexOf(my_array[random_number]) == -1 ) {
+			malas_grabadas.push(my_array[random_number]);
+			document.getElementById("malas_grabadas").innerHTML = malas_grabadas;
+			}
+			
+			else {
+			document.getElementById("malas_grabadas").innerHTML = malas_grabadas;
+			}
+		}
+	
+	}
+	
+	
+	
+	// Comprueba si ya no hay mas restas por hacer en el array, si no
+	// lo manda a la pagina de resultados submitiendo la forma y mandando las restas equivocadas
+	// almacenadas en el array malas, si si manda al generador resta.
+	
+	if(malas.length <= 0) {
+	
+	
+	var element = document.getElementById("difference");
+	var envio_malas2 = ""
+	for(i in malas_grabadas) {
+	envio_malas2 +=malas_grabadas[i]+"&"; }
+	
+	var envio_malas = envio_malas2.substr(0, envio_malas2.length - 1);   // Quitamos el ultimo caracter &
+	
+	//var envio_malas = envio_malas2.length;
+	
+	//elementbyId.value = envio_malas;          //             = getTotalFromSomewhere;
+	//element.name = "malas_gravadas";      // le cambiamos el nombre de respuesta_usuario a malas_gravadas al campo de texto para que en POST aparezca asi
+	
+	document.getElementById("malas_gravadasId").value = envio_malas;  // JavaScript usa el id del elemento, pero en el array POST le pone
+	                                                                // como indice el nombre del elemento.
+	
+	// document.getElementById("malas_gravadas").name = "nuevo_nombre";   // si le quisieramos cambiar el nombre al indice de POST antes de enviarlo
+	
+	
+	
+	element.forma.submit();   // funciona igual si solo se pone element.submit();
+	
+	
+	
+	
+	
+	
+	
+	
+	}   // End if(malas.lenght > 0) 
+	
+	else {
+		
+	generador_resta();
+		
+	}   // End else
+	
+	
+	
+	
+	
+}
+	
+	
+   
+	
+	
+	
+	</script>
+	
+	<p>Resta <b id="resta"></b> </p> 
+	
+	<form name ="forma" action="resultados.php" method = "POST">
+		
+	<input type = "text" id = "difference" onkeydown= "if (event.keyCode == 13) { comprueba(), value =''; return false; }" name = "respuesta_usuario" value = "" size = "5" autocomplete="off" autofocus>  
+	
+	<input type="hidden" name="malas_gravadas" id="malas_gravadasId">
+	
+	<!-- <input type='button' onclick='comprueba()' value='Empieza el juego' > -->
+	</form>
+	
+	<!--
+	<form action="htmlrecividor.php" method="post">
+	<input type="hidden" name="total" id="total">
+	</form>
+
+	<script type="text/javascript">
+	var element = document.getElementById("total");
+	element.value = "Estas son tus equivocadas: ";          //             = getTotalFromSomewhere;
+	element.form.submit();
+	<input type = "text" id = "difference" onkeydown= "if (event.keyCode == 13) { comprueba(), value =''; return false; }"  name = "respuesta_usuario" value = "" size = "5" autofocus>
+	<input type="hidden" name="errores" id="errores">
+	
+	//location.replace('html recividor.html');
+	</script>
+	
+	-->
+	
+	
+	
+	
+	
+	
+	<p id ="nu_array"></p>
+	<p id ="nu"></p>
+	
+	<p id ="respuesta"></p>
+  
+	<p id ="verificacion"></p>
+  
+	<p id ="respuesta_dada"></p>
+  
+	<p id ="array"></p>
+	
+	<p id ="buenas"></p>
+	
+	<p id ="malas"></p>
+  
+	<p id ="malas_grabadas"></p>
+	
+	<p id ="indice"></p>
+  
+  </body>
+  
+  
+</html>
+
+
+
+
+
