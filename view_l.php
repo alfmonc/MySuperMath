@@ -6,16 +6,16 @@ require_once('connect.php');   // Call the connection file so it connect to the 
 	
 
 
-	if($_POST['userName']) {
+	if(isset($_POST['userName'])) {
 
 		
 	$pass = strip_tags($_POST['password']);
 	$user_name = strip_tags($_POST['userName']);
 	
-	try {  $user_database=$db->prepare('SELECT * FROM math_user WHERE password=? AND user_name=? LIMIT 1');   
+	try {  $user_database=$db->prepare('SELECT * FROM math_user WHERE user_name=? LIMIT 1');   
 	
-	$user_database->bindParam(1, $pass);
-	$user_database->bindParam(2, $user_name);
+//	$user_database->bindParam(1, $pass);
+	$user_database->bindParam(1, $user_name);
 	
 	$user_database->execute();   //  execute prepare  if not specified prepare will not apply.
 	
@@ -23,19 +23,25 @@ require_once('connect.php');   // Call the connection file so it connect to the 
 	
 	
 	
-
+	
 	$user_information = $user_database->fetch(PDO::FETCH_ASSOC);
-		
+	
 	
 	
 	$dbPassword = $user_information['password'];
 	
 	
-	if($dbPassword == $_POST['password']) {
+	/*
+	echo var_dump($dbPassword); 
+	echo var_dump($user_information['user_id']);
+	exit;
+	*/
+	
+	if(password_verify($pass,$dbPassword)) {
 	
 		
 		$_SESSION['use'] = $user_information['userName'];
-
+		
 		$_SESSION['id'] = $user_information['user_id'];
 		
 		header("Location: view_home.php");
@@ -136,7 +142,7 @@ h1 {
 
 <form id="form" action="view_l.php" method="POST" enctype="multipart/from-data">
 
-Use: <input type="text" name="userName" /> <br />
+Username: <input type="text" name="userName" /> <br />
 
 Password: <input type="password" name="password" /> <br />
 
