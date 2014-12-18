@@ -13,25 +13,38 @@ session_start();   // No se puede usar con include, por ejemplo para incluir el 
   <head>
     <title>Addition Facts</title>
     <meta charset="utf-8"/>
-	<link rel="stylesheet" href="view_style.css">
+	<link rel="stylesheet" href="css/style_view.css">
 	
 	
   </head>
 
   <body>
   
- 	<P>Hello <?php echo $_SESSION['user']; ?> </p>
+  <header class="row">
+
+
+			<p class= "col-8-16 sign"><em>My Super Math</em></p>
+			
+			<img class="mainIcon" src="img/mysupermath.png" />
+			
+	</header>
+
+
+	<a class="link back" href="view_home.php" >back</a>
+  
+  
+ 	<P class="computer">Hello <?php echo $_SESSION['user']; ?> </p>
 	
 	
-	<p id = "fact"></p>
+	<p class="fact" id = "fact"></p>
 	
-	<p id = "messages"></p>
+	<p class="message" id = "messages"></p>
 	
-	<div id="timer" class="timerClass col-12-16"></div>
+	<div class="timer" id="timer" class="timerClass col-8-16">2</div>
 	
-	<form name ="forma" action="prueba.php" method = "POST">
+	<form class="form" name ="forma" action="prueba.php" method = "POST">
 		
-	<input type = "text" id = "answer_field"  name = "respuesta_usuario" value = "" maxlength="5" size = "10" autocomplete="off" autofocus>  
+	<input class="userfield" type = "text" id = "answer_field"  name = "respuesta_usuario" value = "" maxlength="5" size = "10" autocomplete="off" autofocus>  
 	
 	</form>
 	

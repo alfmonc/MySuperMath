@@ -1,0 +1,30 @@
+@import url('style_general.css');
+@import url('style_grid.css');
+
+
+
+
+
+hr {
+	border: 1px solid;
+
+	margin: 5% 0;
+	
+	
+}
+
+.tags {
+	
+	width: 30%;
+	margin: 0 auto;
+	font-size: 2vw;
+	text-align: center;
+	
+}
+
+.center_button {
+	display:block;
+	width: 30%;
+	margin: 2% auto;
+	//border:1px solid black;
+}

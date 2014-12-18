@@ -1,0 +1,89 @@
+
+
+header {
+	display: block;
+	margin-top: 2%;
+	padding-bottom: 0;
+	background-color: #d6d6d6;
+	margin-left:-10px;
+	width: 102%;
+	position:static;
+	clear: both;
+	
+	
+}
+
+
+.back {
+	
+	
+	display:block;
+	position:static;
+	width: 10%;
+	font-size: 2vw;
+	margin: 2%;
+	text-align: center;
+	
+	
+}
+
+.sign { 
+		display: inline-block;
+		margin-top: 80px;
+		font-size: 6vw;
+		text-align: center;
+		text-shadow: 5px 5px 5px #808080;
+		
+		}
+		
+
+
+/*buttons*/
+.link {
+  padding: 10px 20px 9px 20px;
+  color: #FFF;
+  background-color: #2880d7;
+  font-size: 2vw;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  //width: 100%;
+  border: 1px solid #0000a0;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  //margin-bottom: 10px;
+}
+
+a {
+	text-decoration: none;
+	
+}
+
+a:hover.disabled { 
+	cursor: default;
+	}
+
+a.disabled { 
+	
+	background-color: #c0c0c0;
+	border: 1px solid #808080;
+	hover: none;
+}
+
+
+
+
+.mainIcon {
+	
+	width: 10%;
+	display: inline-block;
+	//float: right;
+	position: static;
+	//margin: 0 0 0 20%;
+	text-align: center;
+	//padding-top: 50px;
+	// border: 1px solid black;
+	vertical-align: center;
+	margin: 0 0 -3% 20%;
+	}
+	

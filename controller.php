@@ -200,7 +200,7 @@ $_SESSION['computer_answer']
 					}
 				
 				// Send the show answer message.
-				$server_data = array("message"=>"The right answer is. ".$_SESSION['computer_answer'],"fact"=>$_SESSION['current_fact'],"end_game"=>false);
+				$server_data = array("message"=>"The right answer is ".$_SESSION['computer_answer'],"fact"=>$_SESSION['current_fact'],"end_game"=>false);
 				echo json_encode($server_data);     
 			
 			// Else, not more than 3 points, then:

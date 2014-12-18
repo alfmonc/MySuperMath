@@ -7,18 +7,34 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="css/style_addition.css">
 </head>
 
 
 <body>
 	
 	
-	<p>Go <a href="view_home.php" >back</a> </p>
+	<header class="row">
+
+
+			<p class= "col-8-16 sign"><em>My Super Math</em></p>
+			
+			<img class="mainIcon" src="img/mysupermath.png" />
+			
+	</header>
+
+
+	<a class="link back" href="view_home.php" >back</a>
 	
-	<p>Click here to start practicing <a href="model.php" >Addition Facts</a> </p>
+	<p class="tags">Click here to start practicing  </p>
 	
+	<a class="link center_button" href="model.php" >Start</a>
 	
-	<p>Click here to review your <a href="view_results.php" >Last Results</a> </p>
+	<hr/>
+	
+	<p class="tags">Click here to review your </p>
+	
+	<a class="link center_button" href="view_results.php" >Last Results</a>
 	
 
 	<p>Your level is <?php $_SESSION['level']?>  </p>

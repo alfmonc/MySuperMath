@@ -1,0 +1,29 @@
+@import url('style_general.css');
+@import url('style_grid.css');
+
+
+.logout {
+	
+	font-size: 2vw;
+	margin-top: 2%;
+	
+	
+}
+
+
+
+.practice {
+	
+	width: 30%;
+	margin: 0 auto;
+	font-size: 2vw;
+	text-align: center;
+	// border:1px solid black;
+}
+
+.center_button {
+	display:block;
+	width: 30%;
+	margin: 2% auto;
+	//border:1px solid black;
+}
