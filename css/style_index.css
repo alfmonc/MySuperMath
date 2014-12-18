@@ -1,0 +1,136 @@
+
+/*
+
+* {
+	
+	border:1px solid blue;
+}
+
+*/
+body {
+	
+	width: 100%;
+	height: 2000px;
+	position:static;
+	
+	
+}
+
+
+
+
+
+
+.link {
+  padding: 10px 20px 9px 20px;
+  color: #FFF;
+  background-color: #2880d7;
+  font-size: 2vw;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #0000a0;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+
+
+header {
+	display: block;
+	margin-top: 40px;
+	padding-bottom: 10%;
+	background-color: #d6d6d6;
+	margin-left:-10px;
+	width: 102%;	
+	position:static;
+	clear: both;
+	
+	
+}
+
+
+
+.g:before {
+	
+	content:url(png/glyphicons-182-download-alt.png);
+	margin: 10px;   /* Separate the image from the text */
+	text-size: 5px;
+	color: green;
+
+}
+
+body {  }
+
+.sign { 
+		display: inline-block;
+		margin-top: 80px;
+		font-size: 6vw;
+		text-align: center;
+		text-shadow: 5px 5px 5px #808080;
+		
+		}
+
+.row {
+		display:block;
+		
+		}
+
+
+.super-wrapper {
+				
+				display: block;
+				width: 70%;
+				text-align: center;
+				margin: auto;
+				padding-top: 5%;
+}
+
+.super {
+			margin: 5% 2% 0 2%;
+			width: 4%;
+			z-index: 3;
+	
+       }
+
+.center {
+	text-align: center;
+	margin: center;
+	/*
+	
+	*/
+	
+}
+
+.mainIcon {
+	
+	width: 20%;
+	display: block;
+	position: absolute;
+	margin: -4% 0 0 41%; 
+	text-align: center;
+	padding: 0;
+	/*border:1px solid blue;*/
+}
+
+
+.acount { font-size:2vw; }
+
+
+@media screen and (max-width:480px) {
+	
+/*	body {background: blue;	} */
+	.sm-screen {
+				 width: 100%; 	}
+	.acount { display: none; }
+	.mainIcon { position:static;
+				margin: auto;
+								 }
+				 
+}
+
+
+
+
+

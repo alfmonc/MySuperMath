@@ -106,7 +106,7 @@ require_once('connect.php');   // Call the connection file so it connect to the 
 <html>
 <head>
 
-
+	<link rel="stylesheet" href="css/style_form.css">
 </head>
 
 
@@ -114,18 +114,25 @@ require_once('connect.php');   // Call the connection file so it connect to the 
 
 <!-- pattern="[A-Za-z]{5-20}" title="Five letter minimum required max 20" -->
 
+
+<h1>Write your information below</h1>
+
+
 <form id="form" action="view_singUp.php" method="POST" enctype="multipart/from-data">
 
-Username: <input type="text" name="userName" maxlength="20" required /> <br />
+<label for = "userName">Username:</label>
+<input type="text" name="userName" id="userName" maxlength="20" required /> <br />
 
-email: <input type="email" name="email" maxlength="20" required /> <br />
+<label for = "email">email:</label>
+<input type="email" id="email" name="email" maxlength="20" required /> <br />
 
-Password: <input type="password" name="password" maxlength="20" required /> <br />
+<label for = "password">Password:</label>
+<input type="password" id = "password" name="password" maxlength="20" required /> <br />
 
  
 
 
-<input type="submit" value="Login" name="Submit" />
+<button type="submit" value="Login" name="Submit" >Sing Up</button>
 
 
 </form>

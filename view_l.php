@@ -78,53 +78,13 @@ require_once('connect.php');   // Call the connection file so it connect to the 
 
 
 
-<style type="text/css">
+
+
+<link rel="stylesheet" href="css/style_form.css">
 
 
 
-html {
 
-		font-family: Verdana, Geneva, sans-serif;
-
-}
-
-
-
-h1 {
-
-	font-size: 24px;
-
-	text-align: center;
-
-}
-
-#wrapper {
-
-			position: absolute;
-
-			width: 100%;
-
-			top: 30%;
-
-			margin-top: -50px; /* half of #content height*/
-
-}
-
-#form {
-
-	margin: auto;
-
-	widht: 200px;
-
-	height: 100px;
-
-	text-align: center;
-
-}
-
-
-
-</style>
 
 
 
@@ -138,15 +98,17 @@ h1 {
 
 <div id="wrapper">
 
-<h1>Simple PHP Login</h1>
+<h1>Enter your username and password</h1>
 
 <form id="form" action="view_l.php" method="POST" enctype="multipart/from-data">
 
-Username: <input type="text" name="userName" /> <br />
+<label for = "userName">Username:</label>
+<input type="text" id ="userName" name="userName" maxlength="20" required /> <br />
 
-Password: <input type="password" name="password" /> <br />
+<label for = "password">Password:</label>
+<input type="password" id = "password" name="password" maxlength="20" required /> <br />
 
-<input type="submit" value="Login" name="Submit" />
+<button type="submit" value="Login" name="Submit">Login</button>
 
 
 

@@ -1,0 +1,75 @@
+
+	[class*='col-'] {
+	  /*float: left;*/
+	  display: inline-block;
+	}
+	/*Grid 16 columns*/
+	.col-1-16  { width:6.20%  }
+	.col-2-16  { width:12.5%  }
+	.col-3-16  { width:18.70% }
+	.col-4-16  { width:25%    }
+	.col-5-16  { width:31%    }
+	.col-6-16  { width:37.20% }
+	.col-7-16  { width:43.5%  } 
+	.col-8-16  { width:49.3% }/*-.4*/
+	.col-9-16  { width:56%    }
+	.col-10-16{ width:62.25% }
+	.col-11-16{ width:68%    }
+	.col-12-16{ width:74.75% }
+	.col-13-16{ width:81%    }
+	.col-14-16{ width:87.25% }
+	.col-15-16{ width:93.5%  }
+	.col-16-16{ width:99.75% } 
+
+
+	.clear::after {
+		content:"";
+		display:table;
+		clear: both;
+	}
+	
+	.clearr {
+		clear:both;
+		
+	}
+
+
+
+	*, *:after, *:before {
+	  -webkit-box-sizing: border-box;
+	  -moz-box-sizing: border-box;
+	  box-sizing: border-box;
+	}
+
+
+	/*Heigh Grid 16 sizes*/
+	.mTop-1-16  {margin-top:6.25%  }
+	.mTop-2-16  { margin-top:12.5%  }
+	.mTop-3-16  { margin-top:18.75% }
+	.mTop-4-16  { margin-top:25%    }
+	.mTop-5-16  { margin-top:31%    }
+	.mTop-6-16  { margin-top:37.25% }
+	.mTop-7-16  { margin-top:43.5%  } 
+	.mTop-8-16  { margin-top:49.75% }
+	.mTop-9-16  { margin-top:56%    }
+	.mTop-10-16{ margin-top:62.25% }
+	.mTop-11-16{ margin-top:68%    }
+	.mTop-12-16{ margin-top:74.75% }
+	.mTop-13-16{ margin-top:81%    }
+	.mTop-14-16{ margin-top:87.25% }
+	.mTop-15-16{ margin-top:93.5%  }
+	.mTop-16-16{ margin-top:99.75% } 
+
+
+
+	.timerClass{
+			text-align: left;
+			/*border-color:black;
+			border-style: solid;
+			margin: 0 5px 10px 0;*/
+			border-radius: 15px;
+			line-height:2vw;
+			vertical-align:middle;
+			font-size:5vw;
+			float: right;
+	}
