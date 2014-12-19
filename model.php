@@ -1,7 +1,9 @@
 <?php
 session_start();
+ob_start();
+require_once('FirePHPCore/fb.php');
 require_once('connect.php');   // Call the connection file so it connect to the data base.
-//ob_start(); 
+
 
 //Seesion_start pleased at the begging with no spaces or any other info so it can be send with the header. 
 //Encoding must be set to UTF-8 with no BOM in the code editor.
@@ -56,7 +58,7 @@ require_once('connect.php');   // Call the connection file so it connect to the 
 		// Split the string making an array separating values by the coma. This are the operations the user will solve.
 		$wrong_facts_stored = explode(",", $data['wrong_answers']);
 
-		//  We need to join two arrays. Wrong_facts_stored and level fast array that contains all the facts for that level.
+		//  We need to join two arrays. Wrong_facts_stored and level facts array that contains all the facts for that level.
 		$merged = array_merge($wrong_facts_stored,$level_facts_array);
 		
 	//	$_SESSION['facts_array'] = $merged;   // Stores the merged array in the global session facts_array.
@@ -64,7 +66,7 @@ require_once('connect.php');   // Call the connection file so it connect to the 
 		
 	} else {    //  else if there there are any wrong fracts stored then
 		
-	//	$_SESSION['facts_array'] = $level_facts_array;     //  Stored the facts in that array with not merging just the level.
+	//	$_SESSION['facts_array'] = $level_facts_array;     //  Store the facts in that array with no merging just the level.
 		$myarray = $level_facts_array;
 		
 		$wrong_facts_stored = array();     //  Sets wrong fracts stored as an empty array.
@@ -124,39 +126,57 @@ require_once('connect.php');   // Call the connection file so it connect to the 
 		
 		$bag_of_facts = array();                             // Declare bag_of_facts as an empty array.
 		
+	//	$bag_of_facts = $wrong_facts_stored;
+		
 		for($i=0; $i < $_SESSION['level']; $i++) {                // loop through every level ( parameter ) below user level.
 			
-			$string_to_array = explode(",", $all_levels[$i]);     // Combert parameter in to an array.
+			$string_to_array = explode(",", $all_levels[$i]);     // Convert parameter in to an array.
 			$parameters_count = count($string_to_array);         // Count how many parameters there are in there.			
 			--$parameters_count;
 			
-			
-			for($ii=0; $ii < 2; $ii++) {                           // loop to select 2 random facts
+			$ii=0;
+			while( $ii < 2) {                           // loop to select 2 random facts
 			$random_number = rand(0,$parameters_count);            // Ramdomly select a number from 0 to the total count of the array.
-			$random_fact = $string_to_array[$random_number];       // Get the random fact.
+			$random_fact = $string_to_array[$random_number];       // Get the random fact.	
 				if(!in_array($random_fact,$bag_of_facts)) {            // if is not true that random_fact is already in the array bag_of_facts then;
 				array_push($bag_of_facts, $random_fact);               // Add the fact in the bag_of_facts array_push adds an element at the begging of the array.
-				} else {                                               // else if it already existe in the array
-				++$ii;                                                 // add one point to ii so it tries again.				
-				}
-				// end else same fact picked
+				++$ii;                                               // add one point to ii so it tries again.				
+				} 
+				
 			
 			}  // end loop select facts
 	
 		}  // end loop  select all levels below user level
 		
-	
+		
 		// Put the array bag_of_facts and the facts array together.
 		$merged = array_merge($bag_of_facts,$_SESSION['facts_array']);
 		
-		$_SESSION['facts_array'] = $merged;   // put it back in the session facts array with all the new random facts.
+		
+		// we make sure there are no duplicate facts
+		$clean_merge = array_unique($merged); // We eliminate any duplicate fact, incase wrong answers are with random piks from other levels.
+		
+		
+		$_SESSION['facts_array'] = $clean_merge;   // put it back in the session facts array with all the new random facts.
 		
 	
 	} // end if session level is grater than 0
-		
+
+
 	
-  //	echo '<pre>'; echo var_dump($_SESSION['facts_array']);exit;   // Trouble shoot .
 	
+	/*********  Trouble shoot  
+	
+	fb($merged, 'merged');
+	fb($clean_merge, 'clean merge');
+	fb($bag_of_facts, 'bag of facts');
+	fb($string_to_array, 'string to array');
+	fb($bag_of_facts, 'bag of facts');
+	fb($_SESSION['facts_array'], 'session facts array');
+	
+    //echo '<pre>'; echo var_dump($all_levels);exit;   // Trouble shoot .
+	
+	*********************************************************************************/
 	
 	
 	//Redirect user to the view.php file to start. The variables stored in $_SESSION will be available there too.

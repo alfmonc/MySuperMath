@@ -45,11 +45,12 @@
 
 .userfield {
 	display: block;
-	width: 12%;
+	width: 30%;
 	height: 30%;
 	font-size: 5vw;
 	margin: 0 auto;
 	border-radius: 20px;
+	text-align: center;
 }
 
 

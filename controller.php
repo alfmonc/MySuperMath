@@ -235,6 +235,7 @@ $_SESSION['computer_answer']
 			fb($fact, 'fact');
 			fb($_SESSION['user_id'],'user_id');
 			fb($_SESSION['level'],'user_level');
+			
 
 	/**************
 	// Trouble shoot show the session id.
