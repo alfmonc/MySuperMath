@@ -49,21 +49,18 @@ header ("Location: login.php");
 	
 	<a class="link" href="logout.php">logout</a>
 	
-	<p class="practice" >Click here to practice facts.</p>
+	<p id = "boton" class="practice" >Click here to practice facts.</p>
 	
-	<a class="link center_button" href="view_addition.php">Practice addition facts</a>
+	<a class="link center_button" href="addition_option.php"  >Practice addition facts</a>
 	
-	<a class="link center_button disabled" href="#">Practice substraction facts</a>
+	<a  class="link center_button disabled" href="#"  >Practice substraction facts</a>
 	
-	<a class="link center_button disabled" href="#">Practice multiplication facts</a>
+	<a class="link center_button disabled" href="#"  >Practice multiplication facts</a>
 	
-	<a class="link center_button disabled" href="#">Practice division facts</a>
-	
-	
+	<a class="link center_button disabled" href="#" >Practice division facts</a>
 	
 	
-	
-	
+		
 </body>
 
 
