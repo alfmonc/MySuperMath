@@ -6,8 +6,36 @@
 
 .fact {
 	display:block;
+	width: 80%;
+	margin: 0 auto;
 	text-align: center;
-	font-size: 5vw;
+	font-size: 10vw;
+	//border: 1px solid black;
+}
+
+.mainIcon_view {
+	
+	width: 10%;
+	display: inline-block;
+	position: static;
+	text-align: center;
+	// border: 1px solid black;
+	vertical-align: center;
+	margin: 0 0 -4% 10%;
+	}
+	
+
+.header_view {
+	display: block;
+	position:static;
+	margin-top: 2%;
+	padding-bottom: 0;
+	background-color: #d6d6d6;
+	margin:0;
+	width: 100%; 
+	position:static;
+	clear: both;
+	margin-bottom: 0;
 	//border: 1px solid black;
 }
 
@@ -17,46 +45,133 @@
 	display:block;
 	text-align: center;
 	font-size: 4vw;
-	//border: 1px solid black;
+	
 }
 
 
 .form {
 	display: block;
-	padding: 100px;
-	width: 60%;
+	padding: 50px;
+	width: 30%;
 	margin: 0 auto;
 	background-color: #e0f0f5;
 	border-radius: 20px;
+	border: 1px solid black;
 	
 }
 
 .timer {
-		position: absolute;
-		width: 5%;
-		left: 70%;
-		top: 50%;
-		//float: right;
-		//margin:  ;
-		font-size: 5vw;
-	
+		display: block;
+		position: static;
+		width: 0;
+		text-align: center;
+		margin: 0 5% 0 9%;
+		font-size: 9vw;
+	/*	border: 1px solid black;*/
 	
 }
 
 .userfield {
 	display: block;
-	width: 30%;
-	height: 30%;
+	//float: right;
+	width: 90%;
+	height: 50%;
 	font-size: 5vw;
 	margin: 0 auto;
 	border-radius: 20px;
 	text-align: center;
+	border: 1px solid black;
 }
 
+
+.go {
+		display: inline-block;
+		font-size: 5vw;
+		background-color: blue;
+		border-radius: 20px;
+		width: 20%;
+		height: 150px;
+		text-align: center;
+		border: 1px solid black;
+		margin: 5% 0 0 40%;
+}
+
+
+.erase {
+		//display: inline-block;
+		float:right;
+		margin: 0 auto;
+		font-size: 3vw;
+		height: 100px;
+		width: 15%;
+		//color: blue;
+		background-color: blue;
+		border-radius:20px;
+		text-align:center;
+}
+
+
+
+span:hover.number, button:hover.go { 
+	cursor: pointer;
+	} 
 
 .computer {
 	
-	font-size: 3vw;
+	font-size: 3vw; }
+	
+	
+.group1 { 
+	display: block;
+	width: 60%;
+	margin: 5% auto;
+	//margin-bottom: 15%;
+	border: 1px solid black;
+ }
+ 
+ .group2 { 
+	display: block;
+	width: 100%px;
+	margin: 5% auto;
+	
+	//border: 1px solid black;
+ }
+
+/*span.uno:nth-child(1)   could be as well*/
+.uno:nth-child(1) { 
+						margin-left: 20%; 
+						/* class="mia" */
+						}
+ 
+
+
+
+
+.number {
+			display: inline-block;
+			font-size: 4em;
+			margin: 2%;
+			background-color: #0000ff;
+			width: 8%;
+			height: 2%;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 140px;
+			vertical-align: center;
+			border: 5px solid black;
+}	
+	
+
+@media screen and (min-width:1000px) {
+	
+	/*.wrapper {background: blue;	} */
+	
+	
+	.group2 { display: none; }
+	.erase { display:none; }
 	
 	
 }
+
+	
+	

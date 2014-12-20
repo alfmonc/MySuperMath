@@ -1,29 +1,25 @@
 
+body { margin: 0;
+	   padding: 0;
+		}
+
+.wrapper {
+	background-color: #c0c0c0;
+	height: 2400px;
+	width: 1600px;
+	margin: 0 auto;
+}
 
 header {
-	display: block;
+	//display: block;
 	margin-top: 2%;
 	padding-bottom: 0;
 	background-color: #d6d6d6;
 	margin-left:-10px;
-	width: 102%;
+	width: 105%;
 	position:static;
 	clear: both;
-	
-	
-}
-
-
-.back {
-	
-	
-	display:block;
-	position:static;
-	width: 10%;
-	font-size: 2vw;
-	margin: 2%;
-	text-align: center;
-	
+	margin-bottom: 0;
 	
 }
 
@@ -36,7 +32,18 @@ header {
 		
 		}
 		
-
+.back {
+	
+	
+	display:block;
+	position:static;
+	width: 10%;
+	//font-size: 2vw;
+	margin: 2%;
+	text-align: center;
+	
+	
+}
 
 /*buttons*/
 .link {

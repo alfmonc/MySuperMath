@@ -42,34 +42,4 @@
 	}
 
 
-	/*Heigh Grid 16 sizes*/
-	.mTop-1-16  {margin-top:6.25%  }
-	.mTop-2-16  { margin-top:12.5%  }
-	.mTop-3-16  { margin-top:18.75% }
-	.mTop-4-16  { margin-top:25%    }
-	.mTop-5-16  { margin-top:31%    }
-	.mTop-6-16  { margin-top:37.25% }
-	.mTop-7-16  { margin-top:43.5%  } 
-	.mTop-8-16  { margin-top:49.75% }
-	.mTop-9-16  { margin-top:56%    }
-	.mTop-10-16{ margin-top:62.25% }
-	.mTop-11-16{ margin-top:68%    }
-	.mTop-12-16{ margin-top:74.75% }
-	.mTop-13-16{ margin-top:81%    }
-	.mTop-14-16{ margin-top:87.25% }
-	.mTop-15-16{ margin-top:93.5%  }
-	.mTop-16-16{ margin-top:99.75% } 
-
-
-
-	.timerClass{
-			text-align: left;
-			/*border-color:black;
-			border-style: solid;
-			margin: 0 5px 10px 0;*/
-			border-radius: 15px;
-			line-height:2vw;
-			vertical-align:middle;
-			font-size:5vw;
-			float: right;
-	}
+	

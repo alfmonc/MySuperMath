@@ -89,6 +89,10 @@ $_SESSION['computer_answer']
 		// the count of the array stored in $total_facts.
 		$random_number = rand(0,$total_facts);
 	//	fb($total_facts, 'total_facts2');
+		
+		
+		
+		
 		// Gets a fact from the array $facts_array using the random number stored in the variable $random_number.
 		$fact = $facts_array[$random_number];		
 		// Create an array $addends splitting the string each + symbol. Same as explode but split support regular expressions in case needed.

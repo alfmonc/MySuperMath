@@ -157,7 +157,11 @@ require_once('connect.php');   // Call the connection file so it connect to the 
 		$clean_merge = array_unique($merged); // We eliminate any duplicate fact, incase wrong answers are with random piks from other levels.
 		
 		
-		$_SESSION['facts_array'] = $clean_merge;   // put it back in the session facts array with all the new random facts.
+		// We make sure there are not empty elements
+		$filtered = array_filter($clean_merge);
+		
+		
+		$_SESSION['facts_array'] = $filtered;   // put it back in the session facts array with all the new random facts.
 		
 	
 	} // end if session level is grater than 0

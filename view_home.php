@@ -32,6 +32,9 @@ header ("Location: login.php");
 
 <body>
 	
+	
+
+	
 	<header class="row">
 
 
@@ -55,6 +58,11 @@ header ("Location: login.php");
 	<a class="link center_button disabled" href="#">Practice multiplication facts</a>
 	
 	<a class="link center_button disabled" href="#">Practice division facts</a>
+	
+	
+	
+	
+	
 	
 </body>
 

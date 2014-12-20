@@ -20,15 +20,19 @@ session_start();   // No se puede usar con include, por ejemplo para incluir el 
 
   <body>
   
-  <header class="row">
+ 
+  
+  <div class= "row header_view">
 
 
 			<p class= "col-8-16 sign"><em>My Super Math</em></p>
 			
-			<img class="mainIcon" src="img/mysupermath.png" />
+			<img class="mainIcon_view" src="img/mysupermath.png" />
 			
-	</header>
+	</div>
 
+	
+<!--  <div class = "wrapper">-->
 
 	<a class="link back" href="view_home.php" >back</a>
   
@@ -40,18 +44,51 @@ session_start();   // No se puede usar con include, por ejemplo para incluir el 
 	
 	<p class="message" id = "messages"></p>
 	
-	<div class="timer" id="timer" class="timerClass col-8-16">2</div>
 	
-	<form class="form" name ="forma" action="prueba.php" method = "POST">
-		
-	<input class="userfield" type = "text" id = "answer_field"  name = "respuesta_usuario" value = "" maxlength="5" size = "10" autocomplete="off" autofocus>  
 	
+	
+	
+	<p class="timer" id="timer" class="timerClass col-8-16">2</p>
+	
+	<form class="form" name ="forma" action="" method = "POST">
+		<input class="userfield" type = "text" id = "answer_field"  name = "respuesta_usuario" value = "" maxlength="5" size = "10" autocomplete="off" autofocus>  
 	</form>
 	
-		
 	
+	<button class="go" onclick = "get_fact()" >Go</button>
+	
+	
+	
+	
+	<button class="erase" onclick = "erase()" >Erase</button>
+	
+	
+	<div class = "group2">
+	
+	<span class = "number uno" onclick="writeMynumber(this)">0</span><span class = "number" onclick= "writeMynumber(this)">1</span><span class = "number" onclick= "writeMynumber(this)">2</span><span class = "number" onclick= "writeMynumber(this)">3</span><span class = "number" onclick= "writeMynumber(this)">4</span>
+	
+	</div>
+	
+	<div class = "group2">
+	
+	<span class = "number uno" onclick= "writeMynumber(this)">5</span><span class = "number" onclick= "writeMynumber(this)">6</span><span class = "number" onclick= "writeMynumber(this)">7</span><span class = "number" onclick= "writeMynumber(this)">8</span><span class = "number" onclick= "writeMynumber(this)">9</span>
+	
+	</div>
+	
+	
+
+	
+	
+	<script src="js/numbers.js"></script> 
 	
 	<script type="text/javascript">
+
+
+
+	
+
+
+	
 	
 	
 	
