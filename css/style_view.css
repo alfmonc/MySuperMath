@@ -166,10 +166,14 @@ span:hover.number, button:hover.go {
 	
 	/*.wrapper {background: blue;	} */
 	
-	
+	.fact { font-size: 5vw; }
 	.group2 { display: none; }
 	.erase { display:none; }
+	.form { width:15%;
+			margin-bottom: 50%;
 	
+	  }
+	.go { display: none;  }
 	
 }
 

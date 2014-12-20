@@ -26,7 +26,7 @@ session_start();
   <head>
     <title>View Results</title>
     <meta charset="utf-8"/>
-	<link rel="stylesheet" href="view_results_style.css">
+	<link rel="stylesheet" href="css/view_results_style.css">
   
   <script>
   

@@ -77,24 +77,42 @@ $_SESSION['computer_answer']
 	// the index is necessary because the three sub arrays are parallel and erase data or add data as user answer.
 	// it is also necessary when we store the facts that user could not answer right for three times.
 	function build_fact() {
+
+		
+		
+		
 		
 		// Stores the sub array facst_array in to $facts_array to work with it more directly. This are the facts user should solve.
 		$facts_array = $_SESSION['facts_array'];   // This are the facts user should solve.
 	//	fb($facts_array, 'facts_array');
-		// Count the elements in the array $facts_array to store how many facts are still there. This is used for the rand function below.
-		$total_facts = count($facts_array);  
-		--$total_facts; // -- takes minus one because the array is base zero, this function starts counting in one. 
-		fb($total_facts, 'total_facts');
-		// Creates a random number with the rand function, 1st parameter min to 2nd parameter max number witch is
-		// the count of the array stored in $total_facts.
-		$random_number = rand(0,$total_facts);
-	//	fb($total_facts, 'total_facts2');
 		
 		
+		$i = 0;
+		while($i == 0) {  // Loop to get a fact different from the last one.
+			
+			
+			
+			// Count the elements in the array $facts_array to store how many facts are still there. This is used for the rand function below.
+			$total_facts = count($facts_array);
+			--$total_facts; // -- takes minus one because the array is base zero, this function starts counting in one.
+			fb($total_facts, 'total_facts');
+			// Creates a random number with the rand function, 1st parameter min to 2nd parameter max number witch is
+			// the count of the array stored in $total_facts.
+			$random_number = rand(0,$total_facts);
+			//	fb($total_facts, 'total_facts2');	
+			// Gets a fact from the array $facts_array using the random number stored in the variable $random_number.
+			$fact = $facts_array[$random_number];
+
+			
+			if($fact != $_SESSION['current_fact'] || $total_facts <= 0 ) { 	   //  If fact is not equal the last fact made by user or the there are more than one fact still left.
+				$i = 1;  // Exit loop 
+			
+			}	// End if			
+		
+		}  // End loop
 		
 		
-		// Gets a fact from the array $facts_array using the random number stored in the variable $random_number.
-		$fact = $facts_array[$random_number];		
+			
 		// Create an array $addends splitting the string each + symbol. Same as explode but split support regular expressions in case needed.
 		$addends = explode('+',$fact);
 		// Gets the right answer from the fact chosen.
